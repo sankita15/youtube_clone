@@ -1,6 +1,7 @@
-As of now added YouTube header
+As of now added YouTube Home page
 
-![Youtube App](./src/assets/youtube_header.png "Header")
+![Youtube App](./src/assets/youtube_homepage.png "Home page")
+![Youtube App](./src/assets/menu_items.mov "Menu items")
 
 
 

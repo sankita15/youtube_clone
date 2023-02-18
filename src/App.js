@@ -1,9 +1,15 @@
 import Header from "./components/Header";
+import {Provider} from "react-redux";
+import store from "./utils/store";
+import Body from "./Body";
 
 const App = () => (
-    <div className="App">
-        <Header />
-    </div>
+    <Provider store={store}>
+        <div>
+            <Header/>
+            <Body/>
+        </div>
+    </Provider>
 );
 
 export default App;
