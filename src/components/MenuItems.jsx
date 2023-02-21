@@ -12,13 +12,14 @@ import history from './../assets/history.png'
 import yourVideos from './../assets/yourVideos.png'
 import likedVideos from './../assets/likedVideos.png'
 import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 const MenuItems = () => {
     const isMenuOpen = useSelector(store => store.app.isMenuOpen)
 
     return (
         <div className={"w-64 py-5 pr-5 pl-5"} style={{fontFamily: '"Roboto","Arial",sans-serif'}}>
-            <MenuItem imgSrc={home} name={'Home'} isOpen={isMenuOpen}/>
+            <Link to={'/'}><MenuItem imgSrc={home} name={'Home'} isOpen={isMenuOpen}/></Link>
             <MenuItem imgSrc={shorts} name={'Shorts'} isOpen={isMenuOpen}/>
             <MenuItem imgSrc={subscription} name={'Subscription'} isOpen={isMenuOpen}/>
             <MenuItem imgSrc={trending} name={'Trending'} isOpen={isMenuOpen}/>

@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {POPULAR_VIDEOS} from "../constants";
 import checkmark from './../assets/checkmark.png';
 import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 const MainContainer = () => {
     const [videos, setVideos] = useState(null);
@@ -21,7 +22,7 @@ const MainContainer = () => {
         <div className={isMenuOpen ? "flex flex-wrap" : "flex flex-wrap ml-24"}>
             {
                 videos?.items.map((video) => {
-                    return <VideoCard info={video} key={video.id} className={"w-1/2"}/>
+                    return <Link to={`/watch?v=${video.id}`} key={video.id}><VideoCard info={video} className={"w-1/2"}/></Link>
                 })
             }
         </div>

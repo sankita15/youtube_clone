@@ -1,11 +1,11 @@
 import MenuItems from "./components/MenuItems";
-import MainContainer from "./components/MainContainer";
+import {Outlet} from "react-router-dom";
 
 const Body = () => {
     return (
         <div className={"flex"}>
         <MenuItems />
-        <MainContainer/>
+        <Outlet/>
         </div>
     )
 }
