@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {POPULAR_VIDEOS} from "../constants";
 import checkmark from './../assets/checkmark.png';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 const MainContainer = () => {
@@ -22,7 +22,9 @@ const MainContainer = () => {
         <div className={isMenuOpen ? "flex flex-wrap" : "flex flex-wrap ml-24"}>
             {
                 videos?.items.map((video) => {
-                    return <Link to={`/watch?v=${video.id}`} key={video.id} className={"m-3 flex flex-wrap shadow-lg p-4 rounded-lg"}><VideoCard info={video} className={"w-1/2"}/></Link>
+                    return <Link to={`/watch?v=${video.id}`} key={video.id} className={"m-3 flex flex-wrap shadow-lg p-4 rounded-lg"}>
+                        <VideoCard info={video} className={"w-1/2"}/>
+                    </Link>
                 })
             }
         </div>

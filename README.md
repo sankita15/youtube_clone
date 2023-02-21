@@ -1,7 +1,11 @@
-As of now added YouTube Home page
+YouTube Home page
 
 ![Youtube App](./src/assets/youtube_homepage.png "Home page")
 ![Youtube App](./src/assets/menu_items.mov "Menu items")
+
+
+YouTube Watch page
+![Youtube App](./src/assets/youtube_watchpage.png "Home page")
 
 
 
