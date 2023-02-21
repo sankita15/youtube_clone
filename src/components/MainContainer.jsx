@@ -22,7 +22,7 @@ const MainContainer = () => {
         <div className={isMenuOpen ? "flex flex-wrap" : "flex flex-wrap ml-24"}>
             {
                 videos?.items.map((video) => {
-                    return <Link to={`/watch?v=${video.id}`} key={video.id}><VideoCard info={video} className={"w-1/2"}/></Link>
+                    return <Link to={`/watch?v=${video.id}`} key={video.id} className={"m-3 flex flex-wrap shadow-lg p-4 rounded-lg"}><VideoCard info={video} className={"w-1/2"}/></Link>
                 })
             }
         </div>
@@ -31,7 +31,7 @@ const MainContainer = () => {
 
 const VideoCard = ({info}) => {
     return (
-        <div className={"m-3 flex flex-wrap shadow-lg p-4 rounded-lg"}>
+        <>
             {
                 info && <div className={"w-80"}>
                     <img className={"w-80 rounded-xl"} src={info.snippet.thumbnails.high.url} alt={'thumnail'}/>
@@ -51,7 +51,7 @@ const VideoCard = ({info}) => {
 
                 </div>
             }
-        </div>
+        </>
     )
 }
 
