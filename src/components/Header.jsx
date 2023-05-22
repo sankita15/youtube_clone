@@ -12,7 +12,7 @@ const Header = () => {
     const [searchSuggestions, setSearchSuggestions] = useState([]);
 
     const getSearchSuggestion = async () => {
-        const response = await fetch(`http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`);
+        const response = await fetch(`https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`);
         const json = await response.json()
         setSearchSuggestions(json[1])
     }
