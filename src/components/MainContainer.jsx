@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {POPULAR_VIDEOS} from "../constants";
 import checkmark from './../assets/checkmark.png';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 
 const MainContainer = () => {
@@ -39,7 +39,7 @@ const VideoCard = ({info}) => {
                     <img className={"w-80 rounded-xl"} src={info.snippet.thumbnails.high.url} alt={'thumnail'}/>
                     <div className={"flex my-2"}>
                         <img className={"w-8 h-8 rounded-full mr-2"} src={info.snippet.thumbnails.high.url}
-                             alt={'thumnail'}/>
+                             alt={'thumbnail'}/>
                         <div>
                             <div className={"break-words font-bold text-lg"}>{info.snippet.title}</div>
                             <div className={"flex items-center"}>

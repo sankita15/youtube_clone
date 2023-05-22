@@ -4,9 +4,26 @@ import search from './../assets/search.png'
 import user from './../assets/user.png'
 import {useDispatch} from "react-redux";
 import {toggleMenu} from "../utils/appSlice";
+import {useEffect, useState} from "react";
 
 const Header = () => {
     const dispatch = useDispatch()
+    const [searchQuery, setSearchQuery] = useState("");
+    const [searchSuggestions, setSearchSuggestions] = useState([]);
+
+    const getSearchSuggestion = async () => {
+        const response = await fetch(`http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`);
+        const json = await response.json()
+        setSearchSuggestions(json[1])
+    }
+
+    useEffect(() => {
+        setTimeout(() => getSearchSuggestion(), 200);
+
+        return () => {
+            clearInterval()
+        }
+    }, [searchQuery])
 
     return (
         <>
@@ -18,10 +35,22 @@ const Header = () => {
                 <div className={"flex col-span-2 my-2"}>
                     <input
                         className={"border-l-2 border-t-2 border-b-2 border-gray-200 p-4 h-12 my-3 w-[490px] rounded-l-full"}
-                        placeholder={'Search'}/>
+                        placeholder={'Search'}
+                        value={searchQuery}
+                        onChange={(event) => setSearchQuery(event.target.value)}
+                    />
                     <img src={search} alt={'search'}
                          className={"w-16 h-12 my-3 border-2 border-gray-200 rounded-r-full bg-white"}/>
                 </div>
+                {searchSuggestions.length !== 0 && <div className={"absolute bg-white py-2 px-5 w-[480px] mx-[540px] mt-[68px] border rounded"}>
+                    <ul>
+                        {
+                            searchSuggestions.map((searchSuggestion, index) => (
+                                <li key={index} className={"py-2"}>{searchSuggestion}</li>
+                            ))
+                        }
+                    </ul>
+                </div>}
                 <img src={user} alt={'user'} className={"w-12 h-12 my-4 ml-auto mr-5"}/>
             </div>
         </>
