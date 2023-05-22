@@ -46,7 +46,10 @@ const Header = () => {
                     <ul>
                         {
                             searchSuggestions.map((searchSuggestion, index) => (
-                                <li key={index} className={"py-2"}>{searchSuggestion}</li>
+                                <div key={index} className={"flex p-2 hover:bg-gray-100 rounded"}>
+                                    <span className={"mr-3"}>🔍</span>
+                                    <li>{searchSuggestion}</li>
+                                </div>
                             ))
                         }
                     </ul>
